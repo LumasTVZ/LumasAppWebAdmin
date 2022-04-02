@@ -1,0 +1,17 @@
+<nz-table nzBordered [nzData]="listOfData" nzTableLayout="fixed">
+  <thead>
+  <tr>
+    <th *ngFor="let column of columnList">{{column}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of dataList">
+      <td *ngFor="let col of columns">
+        <ng-template *ngIf="data.templateRef">
+        <ng-container *ngTemplateOutlet="data.templateRef" select="data.templateRef"></ng-container>
+        </ng-template>
+        <p *ngIf="!data.templateRef">{{data[col]}}</p>
+      </td>
+  </tr>
+  </tbody>
+</nz-table>
