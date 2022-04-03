@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DataTableItem} from "./model/datatable.model";
+import {DataTableColumnConfig} from "./model/datatable.model";
 
 @Component({
   selector: 'app-datatable',
@@ -8,8 +8,8 @@ import {DataTableItem} from "./model/datatable.model";
 })
 export class DatatableComponent implements OnInit {
 
-  @Input() data: DataTableItem[] = [];
-  @Input() colNames: string[] = [];
+  @Input() dataList: any[] = [];
+  @Input() colConfig: DataTableColumnConfig[] = [];
 
   constructor() { }
 

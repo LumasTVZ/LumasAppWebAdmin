@@ -1,16 +1,16 @@
-<nz-table nzBordered [nzData]="listOfData" nzTableLayout="fixed">
+<nz-table  #basicTable [nzData]="dataList">
   <thead>
   <tr>
-    <th *ngFor="let column of columnList">{{column}}</th>
+    <th *ngFor="let column of colConfig">{{column?.columnName}}</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let data of dataList">
-      <td *ngFor="let col of columns">
-        <ng-template *ngIf="data.templateRef">
-        <ng-container *ngTemplateOutlet="data.templateRef" select="data.templateRef"></ng-container>
-        </ng-template>
-        <p *ngIf="!data.templateRef">{{data[col]}}</p>
+  <tr *ngFor="let data of dataList; let i = index">
+      <td *ngFor="let col of colConfig">
+        <ng-container *ngIf="col.templateRef">
+        <ng-container *ngTemplateOutlet="col.templateRef;context: {item: data[col?.columnPropertyFieldName!], index: i }"></ng-container>
+        </ng-container>
+        <p *ngIf="!col.templateRef">{{data[col?.columnPropertyFieldName!]}}</p>
       </td>
   </tr>
   </tbody>

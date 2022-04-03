@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import {DatatableModule} from "./common/datatable/datatable.module";
 
 registerLocaleData(hr);
 
@@ -28,7 +29,8 @@ registerLocaleData(hr);
     AppRoutingModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
+    DatatableModule
   ],
   providers: [{ provide: NZ_I18N, useValue: hr_HR }],
   bootstrap: [AppComponent]
