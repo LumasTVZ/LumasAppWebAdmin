@@ -1,1 +1,40 @@
-<p>tasks works!</p>
+<!--<app-datatable [colConfig]="tableConfig" [dataList]="data">
+  <ng-template #action let-index="index">
+    <button nz-button (click)="deleteTask(index)">delete</button>
+  </ng-template>
+</app-datatable>-->
+<nz-table #sortTable [nzData]="data" nzTableLayout="fixed">
+  <thead>
+  <tr>
+    <th [nzSortFn]="sortTaskName">
+      Task name
+    </th>
+    <th [nzSortFn]="sortDepartment">
+      Department
+    </th>
+    <th [nzSortFn]="sortAssignedTo">
+      Assigned to
+    </th>
+    <th [nzSortFn]="sortStatus">
+      Status
+    </th>
+    <th [nzSortFn]="sortDueTo">
+      Due to
+    </th>
+    <th></th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of data; let i = index">
+    <td>{{ item?.taskName }}</td>
+    <td>{{ item?.department }}</td>
+    <td>{{ item?.assignedTo }}</td>
+    <td>{{ item?.status }}</td>
+    <td>{{ item?.dueTo }}</td>
+    <td>
+      <button nz-button nzDanger (click)="deleteTask(i)">delete</button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

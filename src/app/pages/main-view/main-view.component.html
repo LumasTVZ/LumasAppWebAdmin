@@ -53,14 +53,9 @@
           nzSubtitle="This is a subtitle"
         >
           <nz-page-header-extra>
-            <button nz-button nzType="primary">Primary</button>
           </nz-page-header-extra>
         </nz-page-header>
         <router-outlet></router-outlet>
-        <app-datatable [colConfig]="[{columnName: 'name', columnPropertyFieldName: 'firstName'}, {columnName: 'age', columnPropertyFieldName: 'age'}, {columnName: 'action', templateRef: b}, {columnName: 'lastName', templateRef: k, columnPropertyFieldName: 'lastName'}]" [dataList]="[{firstName:'danijel', lastName: 'car', age:12}]">
-          <ng-template #b let-index="index"><button nz-button (click)="showNotification(index)">klik</button></ng-template>
-          <ng-template #k let-item="item"><b>data from context {{item}} </b></ng-template>
-        </app-datatable>
       </div>
     </nz-content>
   </nz-layout>

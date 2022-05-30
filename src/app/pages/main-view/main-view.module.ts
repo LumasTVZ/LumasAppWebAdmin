@@ -14,8 +14,8 @@ import {NzButtonModule} from "ng-zorro-antd/button";
 
 const routes: Routes = [
   {path: '', component: MainViewComponent, children: [
-    {path: 'location', loadChildren: () => import('./location/location.module').then(m => m.LocationModule) },
     {path: 'gallery', loadChildren: () => import('./gallery/gallery.module').then(m => m.GalleryModule) },
+    {path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule) },
     {path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) }
     ]
   }

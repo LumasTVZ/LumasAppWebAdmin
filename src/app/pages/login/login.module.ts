@@ -5,7 +5,6 @@ import {NzFormModule} from "ng-zorro-antd/form";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {Route, RouterModule, Routes} from "@angular/router";
-import {LocationComponent} from "../main-view/location/location.component";
 import {NzButtonModule} from "ng-zorro-antd/button";
 
 const routes: Routes = [

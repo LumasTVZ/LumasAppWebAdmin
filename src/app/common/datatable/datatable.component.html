@@ -1,7 +1,8 @@
-<nz-table #basicTable [nzData]="dataList">
+<!--
+<nz-table #sortTable  [nzData]="dataList">
   <thead>
   <tr>
-    <th *ngFor="let column of colConfig">{{column?.columnName}}</th>
+    <th [nzSortFn]="column?.compare" [nzSortPriority]="column?.priority" *ngFor="let column of colConfig">{{column?.columnName}}</th>
   </tr>
   </thead>
   <tbody>
@@ -15,3 +16,4 @@
   </tr>
   </tbody>
 </nz-table>
+-->
