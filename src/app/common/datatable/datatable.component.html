@@ -1,11 +1,11 @@
-<nz-table  #basicTable [nzData]="dataList">
+<nz-table #basicTable [nzData]="dataList">
   <thead>
   <tr>
     <th *ngFor="let column of colConfig">{{column?.columnName}}</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let data of dataList; let i = index">
+  <tr style="overflow: auto; resize: both" *ngFor="let data of dataList; let i = index">
       <td *ngFor="let col of colConfig">
         <ng-container *ngIf="col.templateRef">
         <ng-container *ngTemplateOutlet="col.templateRef;context: {item: data[col?.columnPropertyFieldName!], index: i }"></ng-container>

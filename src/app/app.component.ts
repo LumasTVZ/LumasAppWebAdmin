@@ -7,7 +7,6 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  isCollapsed = false;
 
   constructor(private router: Router, private route: ActivatedRoute) {
   }

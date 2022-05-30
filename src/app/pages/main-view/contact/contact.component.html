@@ -1,0 +1,32 @@
+<form nz-form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="username">Username</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input username, min length must be 8 characters!">
+      <input nz-input type="text" formControlName="username" id="username" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+      <input nz-input type="email" formControlName="email" id="email" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="subject" nzRequired>Subject</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input subject!">
+      <input
+        nz-input
+        type="text"
+        id="subject"
+        formControlName="subject"
+      />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="message" nzRequired>message</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input message!">
+      <textarea nz-input rows="6" formControlName="message" id="message" ></textarea>
+    </nz-form-control>
+  </nz-form-item>
+<button  nz-button nzType="primary">Submit</button>
+</form>
