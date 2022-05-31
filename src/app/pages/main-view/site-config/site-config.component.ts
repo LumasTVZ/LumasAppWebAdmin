@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./site-config.component.css']
 })
 export class SiteConfigComponent implements OnInit {
-
+  fontSize: number=12;
+  fontColor: string = ''
   constructor() { }
 
   ngOnInit(): void {

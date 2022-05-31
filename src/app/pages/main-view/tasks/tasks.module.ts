@@ -5,7 +5,11 @@ import {RouterModule, Routes} from "@angular/router";
 import {DatatableModule} from "../../../common/datatable/datatable.module";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzTableModule} from "ng-zorro-antd/table";
-import { TasksEditComponent } from './tasks-edit/tasks-edit.component';
+import {NzModalModule} from "ng-zorro-antd/modal";
+import {NzFormModule} from "ng-zorro-antd/form";
+import {ReactiveFormsModule} from "@angular/forms";
+import {NzInputModule} from "ng-zorro-antd/input";
+import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 
 const routes: Routes = [
   {path: '', component: TasksComponent}
@@ -13,15 +17,19 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    TasksComponent,
-    TasksEditComponent
+    TasksComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        DatatableModule,
-        NzButtonModule,
-        NzTableModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    DatatableModule,
+    NzButtonModule,
+    NzTableModule,
+    NzModalModule,
+    NzFormModule,
+    ReactiveFormsModule,
+    NzInputModule,
+    NzDatePickerModule
+  ]
 })
 export class TasksModule { }

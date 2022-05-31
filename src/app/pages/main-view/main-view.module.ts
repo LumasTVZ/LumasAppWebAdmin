@@ -16,7 +16,8 @@ const routes: Routes = [
   {path: '', component: MainViewComponent, children: [
     {path: 'gallery', loadChildren: () => import('./gallery/gallery.module').then(m => m.GalleryModule) },
     {path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule) },
-    {path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) }
+    {path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
+    {path: 'page-settings', loadChildren: () => import('./site-config/site-config.module').then(m => m.SiteConfigModule) }
     ]
   }
 ]
