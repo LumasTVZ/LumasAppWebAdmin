@@ -1,2 +1,14 @@
-
-<nz-slider [(ngModel)]="fontSize"></nz-slider>
+<h1 font>Font settings</h1>
+<div nz-row>
+  <div nz-col nzSpan="12">
+    <p font>Font size in px:</p>
+    <nz-slider [nzMin]="6" [nzMax]="30"  [(ngModel)]="fontSize"></nz-slider>
+  </div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="12">
+    <p font>Font color:</p>
+    <input [(colorPicker)]="fontColor" [style.background]="fontColor"/>
+  </div>
+</div>
+<button nz-button nzType="primary" (click)="submit()">Submit</button>

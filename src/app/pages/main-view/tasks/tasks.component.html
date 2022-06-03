@@ -7,19 +7,19 @@
 <nz-table #dataTable #sortTable [nzData]="dataDisplay" nzTableLayout="fixed">
   <thead>
   <tr>
-    <th [nzSortOrder]="null"  [nzSortFn]="sortTaskName" [nzSortPriority]="1" >
+    <th font [nzSortOrder]="null"  [nzSortFn]="sortTaskName" [nzSortPriority]="1" >
       Task name
     </th>
-    <th [nzSortFn]="sortDepartment">
+    <th  font [nzSortFn]="sortDepartment">
       Department
     </th>
-    <th [nzSortFn]="sortAssignedTo">
+    <th font [nzSortFn]="sortAssignedTo">
       Assigned to
     </th>
-    <th [nzSortFn]="sortStatus">
+    <th font [nzSortFn]="sortStatus">
       Status
     </th>
-    <th [nzSortFn]="sortDueTo">
+    <th font [nzSortFn]="sortDueTo">
       Due to
     </th>
     <th></th>
@@ -27,12 +27,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let item of data; let i = index">
-    <td>{{ item?.taskName }}</td>
-    <td>{{ item?.department }}</td>
-    <td>{{ item?.assignedTo }}</td>
-    <td>{{ item?.status }}</td>
-    <td>{{ item?.dueTo | date:'dd.MM.yyyy' }}</td>
+  <tr *ngFor="let item of dataDisplay; let i = index">
+    <td font>{{ item?.taskName }}</td>
+    <td font>{{ item?.department }}</td>
+    <td font>{{ item?.assignedTo }}</td>
+    <td font>{{ item?.status }}</td>
+    <td font>{{ item?.dueTo | date:'dd.MM.yyyy' }}</td>
     <td>
       <button nz-button nzDanger (click)="deleteTask(i)">delete</button>
     </td>
@@ -41,35 +41,35 @@
 </nz-table>
 
 
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Add task">
+<nz-modal [(nzVisible)]="isVisible" font nzTitle="Add task">
   <div *nzModalContent>
     <form nz-form [formGroup]="taskForm">
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="tn">Task name</nz-form-label>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="tn"><div font>Task name</div></nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Task name must not be empty">
           <input nz-input formControlName="taskName" id="tn" />
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="department">Department</nz-form-label>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="department"><div font>Department</div></nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Department name must not be empty">
           <input nz-input formControlName="department" id="department" />
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="assignedTo">Assigned To</nz-form-label>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="assignedTo"><div font>Assigned To</div></nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="must assign task to someone">
           <input nz-input formControlName="assignedTo" id="assignedTo" />
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="status">Status</nz-form-label>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="status"><div font>Status</div></nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Status name must not be empty">
           <input nz-input formControlName="status" id="status" />
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="tn">Due to</nz-form-label>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="tn"><div font>Due to</div></nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please select due to">
           <nz-date-picker formControlName="dueTo"></nz-date-picker>
         </nz-form-control>

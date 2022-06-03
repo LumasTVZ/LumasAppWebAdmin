@@ -10,6 +10,10 @@ import {NzFormModule} from "ng-zorro-antd/form";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
+import {FontDirective} from "../../directive/font.directive";
+import {MainViewModule} from "../main-view.module";
+import {DirectiveModule} from "../../directive/directive.module";
+import {TasksProvider} from "./tasks.provider";
 
 const routes: Routes = [
   {path: '', component: TasksComponent}
@@ -17,7 +21,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    TasksComponent
+    TasksComponent,
   ],
   imports: [
     CommonModule,
@@ -29,7 +33,10 @@ const routes: Routes = [
     NzFormModule,
     ReactiveFormsModule,
     NzInputModule,
-    NzDatePickerModule
-  ]
+    NzDatePickerModule,
+    DirectiveModule
+  ],
+  providers: [TasksProvider]
+
 })
 export class TasksModule { }

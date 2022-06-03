@@ -4,9 +4,11 @@ import {NzModalService} from "ng-zorro-antd/modal";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NzNotificationService} from "ng-zorro-antd/notification";
 import {NzTableSortFn} from "ng-zorro-antd/table";
+import {FontDirective} from "../../directive/font.directive";
+import {TasksProvider} from "./tasks.provider";
 
 
-interface Task {
+export interface Task {
   taskName: string;
   department: string;
   assignedTo: string;
@@ -18,7 +20,8 @@ interface Task {
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css']
+  styleUrls: ['./tasks.component.css'],
+  viewProviders: [FontDirective]
 })
 export class TasksComponent implements OnInit {
   sortTaskName: NzTableSortFn<Task> = (a: Task, b:Task, c) => {
@@ -62,19 +65,19 @@ export class TasksComponent implements OnInit {
     return 1
   }
   @ViewChild('action') action!: TemplateRef<any>
-  data: Task[] = [
-    {taskName: 'ddd', department: 'it', assignedTo: 'danijel', status: 'pending', dueTo: '2022-09-22'},
-    {taskName: 'a', department: 'a', assignedTo: 'danijel', status: 'pending', dueTo: '2022-09-22'}
-  ];
-  dataDisplay: Task[] = [...this.data];
+  dataDisplay: Task[] = [];
   isVisible: boolean = false;
   taskForm!: FormGroup
 
-  constructor(private notificationService: NzNotificationService) {
+  constructor(private notificationService: NzNotificationService,
+              private tasksProvider:TasksProvider) {
   }
 
   ngOnInit(): void {
     this.initForm();
+    this.tasksProvider.getServerTasks().subscribe(response =>{
+      this.dataDisplay = response
+    })
   }
 
   initForm(): void {
@@ -88,7 +91,7 @@ export class TasksComponent implements OnInit {
   }
 
   deleteTask(index: any): any {
-    this.data.splice(index, 1);
+    this.dataDisplay.splice(index, 1);
     this.notificationService.success('Task', 'Task deleted successfully');
   }
 
@@ -99,7 +102,7 @@ export class TasksComponent implements OnInit {
 
   handleSubmit(): void {
     if (this.taskForm.valid) {
-      this.data.push(this.taskForm.value as Task)
+      this.dataDisplay.push(this.taskForm.value as Task)
       this.isVisible = false;
       this.notificationService.success('Task', 'Task added successfully');
       this.taskForm.reset();

@@ -10,6 +10,7 @@ import {NzPageHeaderModule} from "ng-zorro-antd/page-header";
 import {NzGridModule} from "ng-zorro-antd/grid";
 import {NzNotificationModule} from "ng-zorro-antd/notification";
 import {NzButtonModule} from "ng-zorro-antd/button";
+import {FontDirective} from "../directive/font.directive";
 
 
 const routes: Routes = [

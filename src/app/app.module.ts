@@ -32,6 +32,7 @@ registerLocaleData(hr);
     NzMenuModule,
     DatatableModule
   ],
+  exports: [],
   providers: [{ provide: NZ_I18N, useValue: hr_HR }],
   bootstrap: [AppComponent]
 })

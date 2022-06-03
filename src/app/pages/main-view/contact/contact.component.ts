@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validator, Validators} from "@angular/forms";
 import {NzNotificationService} from "ng-zorro-antd/notification";
+import {FontDirective} from "../../directive/font.directive";
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
+  viewProviders: [FontDirective]
 })
 export class ContactComponent implements OnInit {
 

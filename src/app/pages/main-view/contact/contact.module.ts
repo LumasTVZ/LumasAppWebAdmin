@@ -6,6 +6,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {RouterModule, Routes} from "@angular/router";
 import {NzButtonModule} from "ng-zorro-antd/button";
+import {FontDirective} from "../../directive/font.directive";
+import {DirectiveModule} from "../../directive/directive.module";
 
 
 const routes: Routes = [
@@ -13,15 +15,18 @@ const routes: Routes = [
 ]
 @NgModule({
   declarations: [
-    ContactComponent
+    ContactComponent,
   ],
-  imports: [
-    CommonModule,
-    NzFormModule,
-    ReactiveFormsModule,
-    NzInputModule,
-    RouterModule.forChild(routes),
-    NzButtonModule
-  ]
+    imports: [
+        CommonModule,
+        NzFormModule,
+        ReactiveFormsModule,
+        NzInputModule,
+        RouterModule.forChild(routes),
+        NzButtonModule,
+        DirectiveModule
+    ],
+  providers: []
+
 })
 export class ContactModule { }
